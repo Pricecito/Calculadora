@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1 th:text="${title}"></h1>
-    <form th:action="@{/calculadora}" method="post">
+    <form th:action="@{calculadora/login}" method="post">
       <input type="text" name="nombreUser" placeholder="Inserte su nombre" />
       <input type="submit" value="Enviar" />
     </form>

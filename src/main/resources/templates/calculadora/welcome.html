@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,5 +7,20 @@
   </head>
   <body>
     <h1 th:text="'BIENVENIDO '+${name}"></h1>
+    <div style="text-align: center">
+      <form th:action="@{/calculadora/operar}" method="post">
+        <input type="number" name="num1" placeholder="Número 1" />
+        <input type="number" name="num2" placeholder="Número 2" />
+        <button type="submit" name="operation" value="suma">SUMAR</button>
+        <button type="submit" name="operation" value="resta">RESTAR</button>
+        <button type="submit" name="operation" value="multiplicacion">
+          MULTIPLICAR
+        </button>
+        <button type="submit" name="operation" value="division">DIVIDIR</button>
+      </form>
+    </div>
+    <div class="resultado" th:unless="${result}==null">
+      <h2 th:text="'El resultado es: '+${result}"></h2>
+    </div>
   </body>
 </html>
